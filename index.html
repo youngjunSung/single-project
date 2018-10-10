@@ -65,10 +65,14 @@
     </script>
   </aside>
   <!--토픽 리스트-->
+  <!--콘텐츠-->
   <section class="content-wrap">
     <article class="content-inner">
-      <h1 class="content-tit">Basics of HTML & CSS</h1>
-      <textarea id="code-js" class="code-area">
+      <!--<h1 class="content-tit">Basics of HTML & CSS</h1>-->
+      <h2 class="content-tit-sub">
+        Text tags
+      </h2>
+      <textarea id="textCode" class="code-area">
 
         <h1>h1~h6 중요한 제목을 의미하는 태그</h1>
         <b>의미 없는 bold체</b>
@@ -84,19 +88,131 @@
         <p>본문에 쓰이는 text<q>인용문을 지정하는 q태그, 큰 따옴표로 감싼다</q></p>
         <hr>수평줄(빈요소)
       </textarea>
+      <div class="result-area">
+        <h1>h1~h6 중요한 제목을 의미하는 태그</h1>
+        <b>의미 없는 bold체</b><br>
+        <strong>중요한 의미의 bold체</strong><br>
+        <i>의미 없는 italic체</i><br>
+        <em>강조하는 italic체</em><br>
+        <small>small text 지정</small>
+        <br>
+        <mark>형광펜 표시</mark>
+        <br>
+        <del>취소선 표시</del>
+        <br>
+        <ins>추가된 text 지정</ins>
+        <br>
+        <sub>아래 쓰인 text</sub><br>
+        <sup>위에 쓰인 text</sup><br>
+        <p>본문에 쓰이는 text<q>인용문을 지정하는 q태그, 큰 따옴표로 감싼다</q></p>
+        <hr>
+        수평줄(빈요소)
+      </div>
+      <p class="content-tit-sub">Form tags</p>
+      <textarea id="formCode" class="code-area">
+
+        <input type="radio" name="gender" value="male" id="male" checked> <label for="male">남자</label><br>
+        <input type="radio" name="gender" value="female" id="female"> <label for="female">여자</label><br>
+        <br>
+        <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+        <input type="button" value="Click Me!" onclick="alert('Hello world!')">
+      </textarea>
+      <div class="result-area">
+        <input type="radio" name="gender" value="male" id="male" checked> <label for="male">남자</label><br>
+        <input type="radio" name="gender" value="female" id="female"> <label for="female">여자</label><br>
+        <br>
+        <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+        <input type="button" value="Click Me!" onclick="alert('Hello world!')">
+      </div>
+      <div class="notice-area">
+        <a class="ui tag label">Notice</a>&nbsp;<em>button 태그의 type 어트리뷰트는 반드시 지정하는 것이 바람직하며 어트리뷰트값으로 button, reset,
+        submit를 지정할 수 있다</em>
+      </div>
+      <p class="content-tit-sub">Form tags</p>
+      <textarea id="tableCode" class="code-area">
+
+        <table>
+        <colgroup><col><col><col><col><col></colgroup>
+        <thead>
+        <tr>
+        <th></th>
+        <th scope="col">월요일</th>
+        <th scope="col">화요일</th>
+        <th scope="col">수요일</th>
+        <th scope="col">목요일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <th scope="row">날씨</th>
+        <td>맑음</td>
+        <td>흐림</td>
+        <td>비옴</td>
+        <td>비옴</td>
+        </tr>
+        <tr>
+        <th scope="row">습도</th>
+        <td>높음</td>
+        <td>적당함</td>
+        <td>낮음</td>
+        <td>낮음</td>
+        </tr>
+        </tbody>
+        </table>
+      </textarea>
+      <div class="result-area">
+        <table>
+          <colgroup><col><col><col><col><col></colgroup>
+          <thead>
+          <tr>
+            <th></th>
+            <th scope="col">월요일</th>
+            <th scope="col">화요일</th>
+            <th scope="col">수요일</th>
+            <th scope="col">목요일</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">날씨</th>
+            <td>맑음</td>
+            <td>흐림</td>
+            <td>비옴</td>
+            <td>비옴</td>
+          </tr>
+          <tr>
+            <th scope="row">습도</th>
+            <td>높음</td>
+            <td>적당함</td>
+            <td>낮음</td>
+            <td>낮음</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="notice-area">
+        <a class="ui tag label">Notice</a>&nbsp;<em>col > row > 해당 셀 순으로(월요일 > 날씨 > 맑음) 읽으며 레이아웃용 테이블에는 scope 속성을 사용하지 않는다.</em>
+      </div>
     </article>
   </section>
+  <!--콘텐츠-->
 </div>
 <!--Codemirror-->
 <script src="assets/js/vender/codemirror.js"></script>
 <script src="assets/js/vender/xml.js"></script>
 <script>
-    var editor = CodeMirror.fromTextArea(document.getElementById("code-js"), {
-        lineNumbers: false,
-        mode: "xml",
-        htmlMode: true,
-        theme: "dracula"
-    });
+    function editor(x) {
+        CodeMirror.fromTextArea(x, {
+            lineNumbers: false,
+            mode: "xml",
+            htmlMode: true,
+            theme: "dracula"
+        });
+    }
+
+    editor(textCode);
+    editor(formCode);
+    editor(tableCode);
 </script>
 <!--Codemirror-->
 </body>

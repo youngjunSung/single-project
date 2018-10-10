@@ -3,7 +3,8 @@
   width: 100%;
   height: 100%;
   .toc-list {
-    position: absolute;
+    position: fixed;
+    overflow-y: auto;
     top: 0;
     left: 0;
     background-color: #fafafa;
@@ -51,7 +52,7 @@
     background-color: white;
     float: left;
     width: calc(100% - 300px);
-    padding: 5rem;
+    padding: 3rem 5rem;
     .content-inner {
       .content-tit {
 
@@ -62,6 +63,7 @@
       .CodeMirror {
         position: relative;
         height: auto;
+        margin-bottom: 2rem;
         &:before {
           position: absolute;
           display: block;
@@ -75,8 +77,32 @@
           background-color: deeppink;
         }
         .CodeMirror-line {
-          margin-bottom: .5rem;
+          //margin-bottom: .5rem;
+          line-height: 2rem;
         }
+      }
+      .result-area {
+        position: relative;
+        padding: 2.1rem 2rem;
+        //background-color: #f1f1f1;
+        border: 1px solid #dedede;
+        margin-bottom: 2rem;
+        &:before {
+          position: absolute;
+          display: block;
+          content: 'Result';
+          top: 0;
+          left: 0;
+          width: auto;
+          height: 20px;
+          padding: 0 .5rem;
+          font-weight: 500;
+          background-color: dodgerblue;
+          color: #fff;
+        }
+      }
+      .notice-area {
+        margin-bottom: 2rem;
       }
     }
   }
