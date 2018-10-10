@@ -64,14 +64,11 @@
         $('.ui.accordion.toc-menu').accordion();
     </script>
   </aside>
-  <!--토픽 리스트-->
   <!--콘텐츠-->
   <section class="content-wrap">
     <article class="content-inner">
       <!--<h1 class="content-tit">Basics of HTML & CSS</h1>-->
-      <h2 class="content-tit-sub">
-        Text tags
-      </h2>
+      <h2 class="content-tit-sub">Text tags</h2>
       <textarea id="textCode" class="code-area">
 
         <h1>h1~h6 중요한 제목을 의미하는 태그</h1>
@@ -108,7 +105,7 @@
         <hr>
         수평줄(빈요소)
       </div>
-      <p class="content-tit-sub">Form tags</p>
+      <h2 class="content-tit-sub">Form tags</h2>
       <textarea id="formCode" class="code-area">
 
         <input type="radio" name="gender" value="male" id="male" checked> <label for="male">남자</label><br>
@@ -128,7 +125,7 @@
         <a class="ui tag label">Notice</a>&nbsp;<em>button 태그의 type 어트리뷰트는 반드시 지정하는 것이 바람직하며 어트리뷰트값으로 button, reset,
         submit를 지정할 수 있다</em>
       </div>
-      <p class="content-tit-sub">Form tags</p>
+      <h2 class="content-tit-sub">Table tags</h2>
       <textarea id="tableCode" class="code-area">
 
         <table>
@@ -195,7 +192,6 @@
       </div>
     </article>
   </section>
-  <!--콘텐츠-->
 </div>
 <!--Codemirror-->
 <script src="assets/js/vender/codemirror.js"></script>
@@ -214,6 +210,5 @@
     editor(formCode);
     editor(tableCode);
 </script>
-<!--Codemirror-->
 </body>
 </html>
