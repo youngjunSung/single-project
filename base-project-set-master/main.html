@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="assets/js/vender/jquery-2.2.4.min.js"></script>
+  <script src="assets/js/vender/jquery-migrate-1.2.1.min.js"></script>
+  <script src="assets/js/vender/slick.min.js"></script>
+  <script src="assets/js/vender/swiper.esm.js"></script>
+  <script src="assets/js/vender/swiper.min.js"></script>
+  <script src="assets/js/vender/semantic.2.2.11.min.js"></script>
+  <script src="assets/js/vender/jquery.particleground.min.js"></script>
+  <script src="assets/js/vender/jquery.stellar.min.js"></script>
+  <script src="assets/js/pages/index.js"></script>
+  <link rel="stylesheet" href="assets/css/index.css"/>
+</head>
+<body>
+<!--중앙 정렬 레이어 팝업-->
+<div class="layer_popup">
+  <div class="content">
+    <h1>Layer</h1>
+    <p>desc</p>
+    <p>desc</p>
+    <p>desc</p>
+    <p>desc</p>
+  </div>
+</div>
+<script>
+    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+
+    function click_ani() {
+        $('.content').addClass('shake animated').one(animationEnd, function () {
+            $('.content').removeClass('shake animated');
+        });
+    }
+
+    click_ani();
+    $('.content').click(function () {
+        event.stopPropagation();
+        click_ani();
+    });
+    $('.layer_popup').click(function () {
+        $(this).delay(500).fadeOut();
+    });
+</script>
+
+<!--탭메뉴-->
+<div class="content-wrap">
+  <ul class="tap-menu">
+    <li class="active">
+      <div><span>이용안내<br/>Giftcard</span></div>
+    </li>
+    <li>
+      <div><span>이용안내</span></div>
+    </li>
+    <li>
+      <div><span>이용안내</span></div>
+    </li>
+  </ul>
+  <ul class="desc-list tap-content">
+    <li>GIFT CARD를 통한 충전은 한 ID 당 충전 총액 50만원 / 월의 제한이 있습니다. 충전일 기준 1개월 이내 충전 금액이 50만 원을 초과할 수 없으니 유의 바랍니다. - GIFT CARD를
+      통한 충전은 한 ID 당 충전 총액 50만원 / 월의 제한이 있습니다. 충전일 기준 1개월 이내 충전 금액이 50만 원을 초과할 수 없으니 유의 바랍니다.
+    </li>
+    <li>GIFT CARD를 통한 충전은 한 ID 당 충전 총액 50만원 / 월의 제한이 있습니다. 충전일 기준 1개월 이내 충전 금액이 50만 원을 초과할 수 없으니 유의 바랍니다. - GIFT CARD를
+      통한 충전은 한 ID 당 충전 총액 50만원 / 월의 제한이 있습니다. 충전일 기준 1개월 이내 충전 금액이 50만 원을 초과할 수 없으니 유의 바랍니다.
+    </li>
+  </ul>
+  <ul class="count-list tap-content">
+    <li>GIFT CARD를 통한 충전은 한 ID 당 충전 총액 50만원 / 월의 제한이 있습니다. 충전일 기준 1개월 이내 충전 금액이 50만 원을 초과할 수 없으니 유의 바랍니다. - GIFT CARD를
+      통한 충전은 한 ID 당 충전 총액 50만원 / 월의 제한이 있습니다. 충전일 기준 1개월 이내 충전 금액이 50만 원을 초과할 수 없으니 유의 바랍니다.
+    </li>
+    <li>GIFT CARD를 통한 충전은 한 ID 당 충전 총액 50만원 / 월의 제한이 있습니다. 충전일 기준 1개월 이내 충전 금액이 50만 원을 초과할 수 없으니 유의 바랍니다. - GIFT CARD를
+      통한 충전은 한 ID 당 충전 총액 50만원 / 월의 제한이 있습니다. 충전일 기준 1개월 이내 충전 금액이 50만 원을 초과할 수 없으니 유의 바랍니다.
+    </li>
+  </ul>
+  <h1 class="gradient-txt">STARPAY</h1>
+  <script>
+      $('.tap-menu > li').click(function (index) {
+          $('.tap-menu > li').removeClass('active');
+          $(this).addClass('active');
+          var li_num = $(this).index();
+          $('.tap-content').hide();
+          $('.tap-content').eq(li_num).fadeIn();
+      });
+  </script>
+</div>
+
+<!--Particleground 플러그인-->
+<div id="particles"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        particleground(document.getElementById('particles'), {
+            dotColor: '#5cbdaa',
+            lineColor: '#5cbdaa'
+        });
+        var intro = document.getElementById('intro');
+        intro.style.marginTop = -intro.offsetHeight / 2 + 'px';
+    }, false);
+</script>
+
+<!-- particles-js 플러그인 -->
+<div id="particles-js"></div>
+<script src="assets/js/vender/particles.min.js"></script>
+<script src="assets/js/vender/app.js"></script>
+
+<!--stellar-js 플러그인-->
+<div class="color-box" data-stellar-background-ratio="0.5"></div>
+<script>
+    $(window).stellar();
+</script>
+</body>
+</html>

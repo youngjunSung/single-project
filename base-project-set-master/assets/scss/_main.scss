@@ -1,0 +1,393 @@
+@mixin font-prop ($size, $bold, $color) {
+    font-size: $size;
+    font-weight: $bold;
+    color: $color;
+}
+@mixin ellipsis ($lines: 1) { // 인자 값의 기본 값은 1
+    @if ($lines == 1) {
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    } @else {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+    }
+}
+.text_ellipsis_1 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    width: 100px;
+    overflow: hidden;
+}
+.text_ellipsis_2up {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    /* 라인수 */
+    line-height: 1.2em;
+    height: 3.6em;
+    /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+}
+@mixin po-absolute ($top:0, $left:0) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+@mixin tab-menu ($menu:2) {
+    @if ($menu == 2) {
+        width: 50%;
+    } @else if ($menu == 3) {
+        width: 33.33%;
+    }
+}
+.개수에_따른_속성 {
+    a:nth-child(1):nth-last-child(1),
+      a:nth-child(1):nth-last-child(1) ~ a {
+        width: 100%;
+      }
+      a:nth-child(1):nth-last-child(2),
+      a:nth-child(1):nth-last-child(2) ~ a {
+        width: 50%;
+      }
+      a:nth-child(1):nth-last-child(3),
+      a:nth-child(1):nth-last-child(3) ~ a {
+        width: 33.333%;
+      }
+      a:nth-child(1):nth-last-child(4),
+      a:nth-child(1):nth-last-child(4) ~ a {
+        width: 25%;
+      }
+      a:nth-child(1):nth-last-child(5),
+      a:nth-child(1):nth-last-child(5) ~ a {
+        width: 20%;
+      }
+}
+@for $i from 1 through 5 {
+    .개수에_따른_속성 {
+      a:nth-child(1):nth-last-child(#{$i}),
+      a:nth-child(1):nth-last-child(#{$i}) ~ a {
+        width: 100% / $i;
+      }
+    }
+  }
+@for $i from 1 through 11{
+    &-#{$i}{
+      @if($i%2 == 1){
+        left: 0;
+      }
+      @else{
+        left: 50%;
+      }
+    }
+  }
+
+
+.drag_none {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.gradient_border {
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, #414141 0%, #000000 50%, #414141 100%);
+    border-image-slice: 1;
+}
+
+.test span {
+    background: linear-gradient(to right, #fbcac9, #8ca6ce);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.background_porperty {
+    background: url("../images/cs/down_btn.png") no-repeat center center;
+    background: url("../images/cs/down_btn.png") center center / cover no-repeat;
+    background: #dedede url("../images/cs/down_btn.png") top center / cover no-repeat;
+}
+
+&:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.remove_select_arr {
+    -webkit-appearance: none;
+    /* for chrome */
+    -moz-appearance: none;
+    /*for firefox*/
+    appearance: none;
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+.중앙정렬 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    &:after {
+      display: inline-block;
+      content: '';
+      width: 0;
+      height: 100%;
+      vertical-align: middle;
+    }
+}
+
+.owl-dots {
+    counter-reset: dots;
+    .owl-dot {
+        &:before {
+            counter-increment: dots;
+            content: counter(dots);
+        }
+        &:nth-child(-n+9):before {
+            content: "0" counter(dots);
+        }
+    }
+}
+
+.ui.selection.dropdown {
+    min-width: calc(100% - 11rem);
+    padding: 1.05rem 1.5rem;
+    .default.text {
+        padding: 1.05rem 1.5rem;
+    }
+    .dropdown.icon {
+        padding: 1.05rem;
+    }
+    .menu {
+        .item {
+            padding: 1.05rem 1rem !important;
+        }
+    }
+}
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -moz-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  justify-content: $value;
+}
+@mixin align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -moz-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  align-items: $value;
+}
+@mixin flex-direction($value: row) {
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -moz-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -moz-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -moz-box-orient: horizontal;
+  }
+  -webkit-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+.main-sidebar {
+    -webkit-box-flex: 1;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;
+    /* OLD - Firefox 19- */
+    -webkit-flex: 1;
+    /* Chrome */
+    -ms-flex: 1;
+    /* IE 10 */
+    flex: 1;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+//반응형 정사각형
+.note {
+  border: 1px solid red;
+  &:after { /* after로 반응형 정사각형 만들기 */
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+  .inner { /* 내부에 컨텐츠가 있을 때 추가 */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.placeholder_color_change {
+    input {
+        padding: 0.78571429em 2.1em 0.78571429em 1em;
+        border-radius: 0.28571429rem;
+        &.input_error {
+          background-color: rgba(221,78,90,0.1);
+        }
+        &::placeholder {
+          color: #f5747f;
+          opacity: 1;
+        }
+        &:-ms-input-placeholder {
+          color: #f5747f;
+        }
+        &::-webkit-input-placeholder {
+          color: #f5747f;
+        }
+      }
+    ::placeholder {
+    color: #c6c6c6 !important;
+    opacity: 1 !important; /* Firefox */
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #c6c6c6 !important;
+    }
+    ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #c6c6c6 !important;
+    }
+}
+// 시멘틱ui 체크박스 커스텀
+.ui.checkbox {
+    margin-top: 1rem;
+    //체크박스 색상
+    input {
+      &:focus ~ label:before {
+        // 체크해제 시 박스 테두리 색상
+        border-color: #dfdfdf;
+      }
+      &:checked:focus ~ label:before {
+        // 체크 시 박스 테두리 색상
+        border-color: #dfdfdf;
+      }
+      &:checked ~ label:before {
+        // 체크 시 박스 테두리 색상
+        border-color: #dfdfdf;
+      }
+      &:checked ~ label:after {
+        // 체크 모양
+        content: '';
+        background: url("/assets/images/kstarpay/icons//icon_checked.png") center center / .8rem no-repeat;
+      }
+    }
+}
+// 테이블 tbody 에 스크롤 부여
+.add-scroll {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .add-scroll thead {
+    float: left;
+    width: 100%;
+    tr {
+      width: 100%;
+      th {
+        width: 150px !important;
+      }
+    }
+  }
+  .add-scroll tbody {
+    overflow-y: auto;
+    overflow-x: hidden;
+    float: left;
+    width: 100%;
+    max-height: 500px;
+    tr {
+      display: table;
+      width: 100%;
+      td {
+        width: 100px;
+      }
+    }
+  }
+  .add-scroll tfoot {
+    float: left;
+    width: 100%;
+    tr {
+      width: 100%;
+      td {
+        width: 150px !important;
+        border-top: 1px solid rgba(34, 36, 38, 0.1) !important;
+      }
+    }
+  }
+// 시멘틱ui 드롭다운 크기 조정
+  .ui.dropdown.show-num {
+    min-height: 2em;
+    padding: 0.5em 1em;
+    min-width: 80px;
+    margin-left: 10px;
+    .dropdown.icon {
+      padding: 0.5em 1em;
+    }
+    .menu .item {
+      padding: 0.5em 1em !important;
+      font-size: 0.95rem;
+    }
+  }

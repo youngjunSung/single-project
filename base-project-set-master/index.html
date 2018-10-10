@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Title</title>
+  <link rel="stylesheet" href="assets/css/index.css">
+  <script src="assets/js/vender/jquery-2.2.4.min.js"></script>
+  <script src="assets/js/vender/jquery-migrate-1.2.1.min.js"></script>
+  <script src="assets/js/vender/prefixfree.js"></script>
+  <script src="assets/js/vender/semantic.2.2.11.min.js"></script>
+</head>
+<body>
+<div class="page-container">
+  <!--토픽 리스트-->
+  <aside class="toc-list">
+    <div class="ui icon input fluid">
+      <input type="text" class="square" placeholder="Search...">
+      <i class="circular search link icon"></i>
+    </div>
+    <div class="ui styled fluid accordion square toc-menu">
+      <div class="active title">
+        HTML & CSS
+        <i class="dropdown icon"></i>
+      </div>
+      <div class="active content">
+        <p>Basics of HTML</p>
+        <p>Component Recycle</p>
+      </div>
+      <div class="title">
+        javascript & jQuery
+        <i class="dropdown icon"></i>
+      </div>
+      <div class="content">
+        <p>frequently used basics codes</p>
+        <p>...</p>
+      </div>
+      <div class="title">
+        Plug in collection
+        <i class="dropdown icon"></i>
+      </div>
+      <div class="content">
+        <p>owl carousel</p>
+        <p>spck spder</p>
+        <p>bxspder</p>
+        <p>swiper</p>
+        <p>fullpage</p>
+        <p>particle</p>
+        <p>ztree</p>
+        <p>codemirror</p>
+      </div>
+      <div class="title">
+        Framework
+        <i class="dropdown icon"></i>
+      </div>
+      <div class="content">
+        <p>Vue</p>
+        <p>Angular</p>
+        <p>React</p>
+      </div>
+    </div>
+    <script>
+        $('.ui.accordion.toc-menu').accordion();
+    </script>
+  </aside>
+  <!--토픽 리스트-->
+  <section class="content-wrap">
+    <article class="content-inner">
+      <h1 class="content-tit">Basics of HTML & CSS</h1>
+      <textarea id="code-js" class="code-area">
+
+        <h1>h1~h6 중요한 제목을 의미하는 태그</h1>
+        <b>의미 없는 bold체</b>
+        <strong>중요한 의미의 bold체</strong>
+        <i>의미 없는 italic체</i>
+        <em>강조하는 italic체</em>
+        <small>small text 지정</small>
+        <mark>형광펜 표시</mark>
+        <del>취소선 표시</del>
+        <ins>추가된 text 지정</ins>
+        <sub>아래 쓰인 text</sub>
+        <sup>위에 쓰인 text</sup>
+        <p>본문에 쓰이는 text<q>인용문을 지정하는 q태그, 큰 따옴표로 감싼다</q></p>
+        <hr>수평줄(빈요소)
+      </textarea>
+    </article>
+  </section>
+</div>
+<!--Codemirror-->
+<script src="assets/js/vender/codemirror.js"></script>
+<script src="assets/js/vender/xml.js"></script>
+<script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("code-js"), {
+        lineNumbers: false,
+        mode: "xml",
+        htmlMode: true,
+        theme: "dracula"
+    });
+</script>
+<!--Codemirror-->
+</body>
+</html>
