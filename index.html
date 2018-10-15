@@ -12,21 +12,49 @@
   <script src="assets/js/vender/semantic.2.2.11.min.js"></script>
 </head>
 <body>
+<header class="hd">
+  <a href="" class="logo-box"><img src="assets/images/logo_2.png" alt=""><span>Pixer.com</span></a>
+  <div class="menu-toggle">
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="cross">
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <script>
+      $('.menu-toggle').on('click',function(){
+          $('.menu-toggle').toggleClass('active');
+          $('.toc-list').toggleClass('active');
+      });
+  </script>
+  <ul class="hd-menu">
+    <li>
+      <div class="ui icon input fluid">
+        <input type="text" class="square" placeholder="Search...">
+        <i class="circular search link icon"></i>
+      </div>
+    </li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</header>
 <div class="page-container">
   <!--토픽 리스트-->
-  <aside class="toc-list">
-    <div class="ui icon input fluid">
-      <input type="text" class="square" placeholder="Search...">
-      <i class="circular search link icon"></i>
-    </div>
+  <nav class="toc-list">
+
     <div class="ui styled fluid accordion square toc-menu">
       <div class="active title">
         HTML & CSS
         <i class="dropdown icon"></i>
       </div>
       <div class="active content">
-        <p>Basics of HTML</p>
         <p>Component Recycle</p>
+        <p>Basics of HTML</p>
       </div>
       <div class="title">
         javascript & jQuery
@@ -63,10 +91,38 @@
     <script>
         $('.ui.accordion.toc-menu').accordion();
     </script>
-  </aside>
+  </nav>
   <!--콘텐츠-->
   <section class="content-wrap">
-    <article class="content-inner">
+    <article class="content-inner" data-name="Component Recycle">
+      <!--<h1 class="content-tit">Basics of HTML & CSS</h1>-->
+      <h2 class="content-tit-sub">Layer popup center position</h2>
+      <textarea id="crCode1" class="code-area">
+
+        <!--중앙 정렬 레이어 팝업-->
+        <div class="layer_popup">
+          <div class="content">
+            <h1>Layer</h1>
+            <p>desc</p>
+            <p>desc</p>
+            <p>desc</p>
+            <p>desc</p>
+          </div>
+        </div>
+      </textarea>
+      <div class="result-area result-layer">
+        <!--중앙 정렬 레이어 팝업-->
+        <div class="layer_popup">
+          <div class="content">
+            <iframe style="margin-bottom: -5px;" src="https://www.youtube.com/embed/5Gsgp_vPcMY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="notice-area">
+        <a class="ui tag label">Notice</a>&nbsp;<em>content 클래스 내부 하단에 여백이 생길 수 있음.</em>
+      </div>
+    </article>
+    <article class="content-inner" data-name="Basics of HTML">
       <!--<h1 class="content-tit">Basics of HTML & CSS</h1>-->
       <h2 class="content-tit-sub">Text tags</h2>
       <textarea id="textCode" class="code-area">
@@ -209,6 +265,7 @@
     editor(textCode);
     editor(formCode);
     editor(tableCode);
+    editor(crCode1);
 </script>
 </body>
 </html>
