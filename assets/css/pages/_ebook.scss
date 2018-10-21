@@ -29,9 +29,24 @@
       transform: translateX(-50%) translateY(-50%);
     }
   }
+  .bg-mo {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    &.active {
+      display: block;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 200;
+    }
+  }
   .hd-menu {
     float: right;
     li {
+      // 검색박스
       .ui.input {
         width: 200px;
         @media all and (max-width: 990px) {
@@ -137,6 +152,7 @@
   padding-top: 60px;
   width: 100%;
   height: 100%;
+  // 검색박스
   .ui.input.searching {
     display: none;
     @media all and (max-width: 990px) {
@@ -150,24 +166,64 @@
       top: .5em;
     }
   }
+  // 토픽 목록
   .toc-list {
     position: fixed;
-    overflow-y: auto;
+    z-index: 2;
     top: 60px;
     left: 0;
     background-color: #fafafa;
-    float: left;
     width: 300px;
     height: calc(100% - 60px);
     border: 1px solid rgba(34, 36, 38, 0.15);
     border-width: 0 1px 0 0;
     transition: all 0.5s;
     @media all and (max-width: 990px) {
-      left: -100%;
+      left: -300px;
       z-index: 300;
     }
     &.active {
       left: 0;
+    }
+    &.pc-hidden {
+      left: -300px;
+    }
+    .toggle-btn-pc {
+      position: absolute;
+      z-index: 100;
+      top: 20px;
+      right: -30px;
+      width: 30px;
+      height: 50px;
+      border: 1px solid rgba(34,36,38,0.15);
+      border-left: none;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      cursor: pointer;
+      @media all and (max-width: 990px) {
+        display: none;
+      }
+      &:before {
+        content:"";
+        display:inline-block;
+        vertical-align:middle;
+        height:100%;
+      }
+      img {
+        display:inline-block;
+        vertical-align:middle;
+        opacity: 0.5;
+        width: .65rem;
+        margin-left: 6px;
+        transition: all 0.5s;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      &.active {
+        img {
+          transform: rotateY(180deg);
+        }
+      }
     }
     .ui.accordion.toc-menu {
       padding: 1rem;
@@ -193,16 +249,22 @@
       }
     }
   }
+  // 콘텐츠 시작
   .content-wrap {
     position: relative;
+    z-index: 1;
     top: 0;
     left: 300px;
     background-color: white;
-    float: left;
     width: calc(100% - 300px);
     padding: 3rem 5rem;
+    transition: all 0.5s;
     @media all and (max-width: 990px) {
       padding: 3rem 1.5rem;
+      left: 0;
+      width: 100%;
+    }
+    &.pc-hidden {
       left: 0;
       width: 100%;
     }
@@ -210,59 +272,120 @@
       .content-tit {
 
       }
-      .code-area {
-        position: relative;
-      }
-      .CodeMirror {
-        position: relative;
-        height: auto;
+      // 코드미러
+      .code-area-wrap {
         margin-bottom: 2rem;
-        &:before {
-          position: absolute;
-          display: block;
-          content: 'Code';
-          top: 0;
-          left: 0;
-          width: auto;
-          height: 20px;
-          padding: 0 .5rem;
-          font-weight: 700;
-          background-color: deeppink;
+        &.double {
+          .CodeMirror {
+            float: left;
+            width: 50%;
+            @media all and (max-width: 990px) {
+              width: 100%;
+              margin-bottom: 1rem;
+            }
+          }
+          &:after {
+            display: block;
+            content: '';
+            clear: both;
+          }
         }
-        .CodeMirror-line {
-          //margin-bottom: .5rem;
-          line-height: 2rem;
+        .code-area {
+          position: relative;
+        }
+        .CodeMirror {
+          position: relative;
+          height: auto;
+          background-color: #252631;
+          &:before {
+            position: absolute;
+            display: block;
+            content: 'HTML';
+            top: 0;
+            left: 0;
+            width: auto;
+            height: 20px;
+            padding: 0 .5rem;
+            color: white;
+            font-size: .8rem;
+            font-weight: 700;
+            background-color: deeppink;
+          }
+          .CodeMirror-scroll {
+            min-height: 400px;
+            max-height: 400px;
+            @media all and (max-width: 990px) {
+              min-height: 20rem;
+              max-height: 20rem;
+            }
+          }
+          .CodeMirror-line {
+            //margin-bottom: .5rem;
+            line-height: 1.6rem;
+          }
+          &.cm-s-ambiance {
+            box-shadow: none;
+            &:before {
+              position: absolute;
+              display: block;
+              content: 'CSS';
+              top: 0;
+              left: 0;
+              width: auto;
+              height: 20px;
+              padding: 0 .5rem;
+              color: white;
+              font-size: .8rem;
+              font-weight: 700;
+              background-color: dodgerblue;
+            }
+          }
+          &.cm-s-material {
+            &:before {
+              position: absolute;
+              display: block;
+              content: 'CODE';
+              top: 0;
+              left: 0;
+              width: auto;
+              height: 20px;
+              padding: 0 .5rem;
+              color: white;
+              font-size: .8rem;
+              font-weight: 700;
+              background-color: #dddd00;
+            }
+          }
         }
       }
+      // 결과영역
       .result-area {
         position: relative;
         padding: 2.1rem 2rem;
         //background-color: #f1f1f1;
         border: 1px solid #dedede;
         margin-bottom: 2rem;
+        overflow: hidden;
         &:before {
           position: absolute;
-          display: block;
-          content: 'Result';
           z-index: 101;
+          display: block;
+          content: 'RESULT';
           top: 0;
           left: 0;
           width: auto;
           height: 20px;
           padding: 0 .5rem;
-          font-weight: 500;
-          background-color: dodgerblue;
-          color: #fff;
+          color: white;
+          font-size: .8rem;
+          font-weight: 700;
+          background-color: #8f1eb4;
         }
+        // 결과영역 - 중앙 레이어 팝업
         &.result-layer {
-          &:after {
-            display: block;
-            content: '';
-            height: 40rem;
-            padding: 2.1rem 2rem;
-            @media all and (max-width: 990px) {
-              height: 20rem;
-            }
+          height: 40rem;
+          @media all and (max-width: 990px) {
+            height: 20rem;
           }
           // 레이어 배경
           .layer_popup {
@@ -302,6 +425,7 @@
           }
         }
       }
+      // 주의사항
       .notice-area {
         margin-bottom: 2rem;
       }

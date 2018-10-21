@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "first_name": "Marlow",
+    "last_name": "Joul",
+    "email": "mjoul0@google.com",
+    "gender": "Male"
+  },
+  {
+    "id": 2,
+    "first_name": "Sharron",
+    "last_name": "Veryan",
+    "email": "sveryan1@cnbc.com",
+    "gender": "Female"
+  },
+  {
+    "id": 3,
+    "first_name": "Tildie",
+    "last_name": "Lasseter",
+    "email": "tlasseter2@fda.gov",
+    "gender": "Female"
+  },
+  {
+    "id": 4,
+    "first_name": "Haywood",
+    "last_name": "Foulger",
+    "email": "hfoulger3@soup.io",
+    "gender": "Male"
+  },
+  {
+    "id": 5,
+    "first_name": "Alvin",
+    "last_name": "Rochelle",
+    "email": "arochelle4@cmu.edu",
+    "gender": "Male"
+  },
+  {
+    "id": 6,
+    "first_name": "Ernestus",
+    "last_name": "Stennett",
+    "email": "estennett5@independent.co.uk",
+    "gender": "Male"
+  },
+  {
+    "id": 7,
+    "first_name": "Osbert",
+    "last_name": "Boggish",
+    "email": "oboggish6@dot.gov",
+    "gender": "Male"
+  },
+  {
+    "id": 8,
+    "first_name": "Collie",
+    "last_name": "Gerritsma",
+    "email": "cgerritsma7@weibo.com",
+    "gender": "Female"
+  },
+  {
+    "id": 9,
+    "first_name": "Cathy",
+    "last_name": "Winsor",
+    "email": "cwinsor8@ow.ly",
+    "gender": "Female"
+  },
+  {
+    "id": 10,
+    "first_name": "Ettore",
+    "last_name": "McVitie",
+    "email": "emcvitie9@yellowbook.com",
+    "gender": "Male"
+  },
+  {
+    "id": 11,
+    "first_name": "Angele",
+    "last_name": "Stuckford",
+    "email": "astuckforda@baidu.com",
+    "gender": "Female"
+  },
+  {
+    "id": 12,
+    "first_name": "Jarib",
+    "last_name": "Demkowicz",
+    "email": "jdemkowiczb@xrea.com",
+    "gender": "Male"
+  },
+  {
+    "id": 13,
+    "first_name": "Noam",
+    "last_name": "Wycliffe",
+    "email": "nwycliffec@spotify.com",
+    "gender": "Male"
+  },
+  {
+    "id": 14,
+    "first_name": "Matthieu",
+    "last_name": "Hullot",
+    "email": "mhullotd@istockphoto.com",
+    "gender": "Male"
+  }
+]
