@@ -1,3 +1,12 @@
+// fullPage
+.content-inner[data-name="fullPage"] {
+  .fullpage-wrapper {
+    z-index: 300;
+    .section {
+      text-align: center;
+    }
+  }
+}
 .hd {
   position: fixed;
   z-index: 200;

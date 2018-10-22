@@ -13,6 +13,48 @@
   <script src="assets/js/pages/index.js"></script>
 </head>
 <body>
+<!--page-container 영역 밖 콘텐츠-->
+<article class="content-inner" data-name="fullPage">
+  <div id="fullpage">
+    <div class="section " id="section0">
+      <h1>Section 1</h1>
+    </div>
+    <div class="section active" id="section1">
+      <div class="slide" id="slide1">
+        <div class="intro">
+          <h1>Slide 2.1</h1>
+          <iframe data-src="auto-height.html"></iframe>
+        </div>
+      </div>
+      <div class="slide active" id="slide2">
+        <div class="intro">
+          <h1>Slide 2.2</h1>
+          <p>
+            We are using the class `active` on this section and in this particular horizontal slide. This way it will appear on the viewport on page load, instead of the 1st section 1st slide.
+          </p>
+          <p>You can apply the same logic to horizontal slides</p>
+        </div>
+      </div>
+      <div class="slide" id="slide3">
+        <h1>Slide 2.3</h1>
+      </div>
+    </div>
+    <div class="section" id="section2">
+      <div class="intro">
+        <h1>Section 3</h1>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/vender/fullpage.min.js"></script>
+  <script type="text/javascript">
+      var myFullpage = new fullpage('#fullpage', {
+          sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+          anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+          menu: '#menu',
+          lazyLoad: true
+      });
+  </script>
+</article>
 <header class="hd">
   <a href="" class="logo-box"><img src="assets/images/logo_7.png" alt=""><span>Pixer.com</span></a>
   <div class="menu-toggle">
@@ -83,7 +125,7 @@
         <p>slick slider</p>
         <p>bxslider</p>
         <p>swiper</p>
-        <p>fullpage</p>
+        <p>fullPage</p>
         <p>particle</p>
         <p>ztree</p>
       </div>
@@ -104,6 +146,7 @@
   </nav>
   <!--콘텐츠-->
   <section class="content-wrap">
+    <!--Component Recycle-->
     <article class="content-inner" data-name="Component Recycle">
       <h2 class="content-tit-sub">Layer popup center position</h2>
       <div class="code-area-wrap double">
@@ -172,7 +215,7 @@
         <a class="ui tag label">Notice</a>&nbsp;<em>content 클래스 내부 하단에 여백이 생길 수 있음.</em>
       </div>
     </article>
-
+    <!--Basics of HTML-->
     <article class="content-inner" data-name="Basics of HTML">
       <h2 class="content-tit-sub">Text tags amass</h2>
       <div class="code-area-wrap">
@@ -301,7 +344,7 @@
         <a class="ui tag label">Notice</a>&nbsp;<em>col > row > 해당 셀 순으로(월요일 > 날씨 > 맑음) 읽으며 레이아웃용 테이블에는 scope 속성을 사용하지 않는다.</em>
       </div>
     </article>
-
+    <!--Basics of CSS-->
     <article class="content-inner" data-name="Basics of CSS">
       <h2 class="content-tit-sub">CSS selector</h2>
       <div class="code-area-wrap">
@@ -415,6 +458,7 @@
         </textarea>
       </div>
     </article>
+    <!--jQuery Ajax-->
     <article class="content-inner" data-name="jQuery Ajax">
       <h2 class="content-tit-sub">jQuery Ajax</h2>
       <div class="code-area-wrap double">
@@ -633,6 +677,10 @@
     //jQuery & Javascript
     editorJS(ajaxCode);
     editorJS(ajaxCode2);
+
+    //Fullpage.js
+    editor(fullPageCode);
+    editorJS(fullPageCodeJS);
 </script>
 </body>
 </html>

@@ -21,7 +21,8 @@ $(document).ready(function () {
     });
 
     // 첫 로드 시 content 제어
-    $('.content-inner').not(':first').hide();
+    // $('.content-inner').not('[data-name="Component Recycle"]').hide();
+    $('.content-inner').not(':eq(1)').hide();
 
     // content 이동
     $('.toc-menu p').click(function () {
