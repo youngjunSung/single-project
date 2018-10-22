@@ -15,45 +15,7 @@
 <body>
 <!--page-container 영역 밖 콘텐츠-->
 <article class="content-inner" data-name="fullPage">
-  <div id="fullpage">
-    <div class="section " id="section0">
-      <h1>Section 1</h1>
-    </div>
-    <div class="section active" id="section1">
-      <div class="slide" id="slide1">
-        <div class="intro">
-          <h1>Slide 2.1</h1>
-          <iframe data-src="auto-height.html"></iframe>
-        </div>
-      </div>
-      <div class="slide active" id="slide2">
-        <div class="intro">
-          <h1>Slide 2.2</h1>
-          <p>
-            We are using the class `active` on this section and in this particular horizontal slide. This way it will appear on the viewport on page load, instead of the 1st section 1st slide.
-          </p>
-          <p>You can apply the same logic to horizontal slides</p>
-        </div>
-      </div>
-      <div class="slide" id="slide3">
-        <h1>Slide 2.3</h1>
-      </div>
-    </div>
-    <div class="section" id="section2">
-      <div class="intro">
-        <h1>Section 3</h1>
-      </div>
-    </div>
-  </div>
-  <script src="assets/js/vender/fullpage.min.js"></script>
-  <script type="text/javascript">
-      var myFullpage = new fullpage('#fullpage', {
-          sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-          anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
-          menu: '#menu',
-          lazyLoad: true
-      });
-  </script>
+
 </article>
 <header class="hd">
   <a href="" class="logo-box"><img src="assets/images/logo_7.png" alt=""><span>Pixer.com</span></a>
@@ -70,9 +32,7 @@
   </div>
   <script>
       $('.menu-toggle').on('click',function(){
-          $('.menu-toggle').toggleClass('active');
-          $('.toc-list').toggleClass('active');
-          $('.header-bg-mo').toggleClass('active');
+          $('.menu-toggle, .toc-list, .bg-mo').toggleClass('active');
       });
   </script>
   <ul class="hd-menu">
