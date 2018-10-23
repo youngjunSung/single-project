@@ -10,6 +10,57 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanssc.css);
 @import url(//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900);
 
+@font-face {
+  font-family: 'Noto Sans CJK'; // 폰트 이름 원하는데로 설정 가능
+  font-weight: 400;
+  src: url('./assets/fonts/NotoSansCJKkr-Regular.eot');//  IE 호환성 모드
+  src: url('./assets/fonts/NotoSansCJKkr-Regular.eot?#iefix') format('embedded-opentype'), // format() 작성 시 지원하는 브라우저만 자운
+  url('./assets/fonts/NotoSansCJKkr-Regular.woff') format('woff'),
+  url('./assets/fonts/NotoSansCJKkr-Regular.otf') format('opentype');
+  // IE8 이하는 format() 구문 인식을 못 해 다른 url()을 다운받는다
+  // 그래서 '#iefix'를 삽입하여 뒤로는 인식 못 하게 하여 .eot 파일만 받게 함 (IE 특성 이용)
+  // 이후 타 브라우저들은 해당 포맷만 다운로드
+  src: local(※), url('./assets/fonts/NotoSansCJKkr-Regular.woff') format('woff');
+  // local('폰트이름') -> 외부 자원을 참조하기 이전에 시스템에 설치된 글꼴을 우선 참조
+  // 없을 경우 url() 주소로 연결 (IE는 local() 속성을 인식 못 함->건너뜀)
+}
+
+///*noto-sans Medium*/
+@font-face {
+  font-family: 'Noto Sans CJK';
+  font-weight: 500;
+  src: url('./assets/fonts/NotoSansCJKkr-Medium.eot');
+  src: url('./assets/fonts/NotoSansCJKkr-Medium.eot?#iefix') format('embedded-opentype'),
+  url('./assets/fonts/NotoSansCJKkr-Medium.woff') format('woff'),
+  url('./assets/fonts/NotoSansCJKkr-Medium.otf') format('opentype');
+  src: local(※), url('./assets/fonts/NotoSansCJKkr-Medium.woff') format('woff');
+}
+
+///*noto-sans Medium*/
+@font-face {
+  font-family: 'Noto Sans CJK';
+  font-weight: 500;
+  src: url('./assets/fonts/NotoSansCJKkr-Medium.eot');
+  src: local(※),
+  url('./assets/fonts/NotoSansCJKkr-Medium.woff') format('woff'),
+  url('./assets/fonts/NotoSansCJKkr-Medium.woff') format('opentype');
+//  IE 6~8 로 접속 - 첫 src : local() 속성 인식 못하여 다음 src 에서 .eot 다운
+//  IE 호환성 보기로 접속 - 첫 src : local() 속성 인식 못하여 다음 src 에서 .eot 다운
+//  IE 9 이상으로 접속 - .woff 다운
+//  크롬, firefox, opera, safari 접속 - .woff 또는 opentype 다운
+}
+
+///*noto-sans Bold*/
+@font-face {
+  font-family: 'Noto Sans CJK';
+  font-weight: 600;
+  src: url('./assets/fonts/NotoSansCJKkr-Bold.eot');
+  src: url('./assets/fonts/NotoSansCJKkr-Bold.eot?#iefix') format('embedded-opentype'),
+  url('./assets/fonts/NotoSansCJKkr-Bold.woff') format('woff'),
+  url('./assets/fonts/NotoSansCJKkr-Bold.otf') format('opentype');
+  src: local(※), url('./assets/fonts/NotoSansCJKkr-Bold.woff') format('woff');
+}
+
 
 
 

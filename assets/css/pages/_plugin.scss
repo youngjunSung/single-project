@@ -1,0 +1,17 @@
+.fullpage-nav {
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 50px;
+  li {
+    margin-right: 1rem;
+  }
+}
+.fullpage-wrap {
+  .section {
+    text-align: center;
+    .intro2 > h1, .intro2 > p {
+      color: red;
+    }
+  }
+}

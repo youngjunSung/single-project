@@ -15,17 +15,11 @@
 @import "vender/codemirror/dracula.css";
 @import "vender/codemirror/material.css";
 @import "vender/codemirror/ambiance.css";
-@import "vender/codemirror/base16-light.css";
-@import "vender/codemirror/base16-dark.css";
-@import "vender/codemirror/idea.css";
-@import "vender/codemirror/oceanic-next.css";
-@import "vender/codemirror/lesser-dark.css";
-@import "vender/codemirror/panda-syntax.css";
 @import "vender/codemirror/simplescrollbars.css";
 
 //base
 @import "base/_font";
 @import "base/_reset";
 //page
-//@import "pages/_index";
 @import "pages/_ebook";
+@import "pages/_plugin";

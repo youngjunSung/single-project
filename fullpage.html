@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Title</title>
+  <link rel="stylesheet" href="assets/css/index.css">
+  <script src="assets/js/vender/jquery-2.2.4.min.js"></script>
+  <script src="assets/js/vender/jquery-migrate-1.2.1.min.js"></script>
+  <script src="assets/js/vender/semantic.2.2.11.min.js"></script>
+</head>
+<body>
+<ul class="fullpage-nav">
+  <li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
+  <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+  <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+</ul>
+
+<div class="fullpage-wrap">
+  <div class="section">
+    <div class="intro1">
+      <h1>section1</h1>
+      <p>You can make use of <a href="https://github.com/alvarotrigo/fullPage.js#callbacks" target="_blank">callbacks</a> or <a href="https://github.com/alvarotrigo/fullPage.js#state-classes-added-by-fullpagejs" target="_blank">state classes</a> to fire animations.</p>
+      <p>See my video tutorial regarding how to create css3 animations too!</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="intro2">
+      <h1>section2</h1>
+      <p>Animation fired through fullPage.js callbacks, making use of css3 transitions.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="intro3">
+      <h1>section3</h1>
+      <p>Choose the best easing effect for your site!</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="intro4">
+      <h1>section4</h1>
+      <p>Choose the best easing effect for your site!</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="intro5">
+      <h1>section5</h1>
+      <p>Choose the best easing effect for your site!</p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="assets/js/vender/fullpage.2.9.6.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+      $('.fullpage-wrap').fullpage({
+          sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+          anchors: ['firstPage', 'secondSlide', 'thirdPage', 'fourthPage', 'lastPage'],
+          menu: '.fullpage-nav',
+          /*onLeave: function(index, nextIndex, direction){
+              if (index == 1) {
+                  if (direction == 'down') {
+                      if (nextIndex == 2) {
+                          $('.intro2 > h1, p').addClass('fadeInLeft animated');
+                      } else {
+                          $('.intro2 > h1, p').removeClass('fadeInLeft animated');
+                      }
+                  }
+              }
+          }*/
+          onLeave: function(index, nextIndex, direction){
+              var leavingSection = $(this);
+
+              //after leaving section 2
+              if(index == 1){
+                  leavingSection.next().find('h1, p').addClass('animated fadeInLeft');
+              } else if (index == 2) {
+                  leavingSection.next().find('h1, p').addClass('animated fadeInLeft');
+              } else if (index == 3) {
+                  leavingSection.next().find('h1, p').addClass('animated fadeInLeft');
+              } else if (index == 4) {
+                  leavingSection.next().find('h1, p').addClass('animated fadeInLeft');
+              } else {
+                  leavingSection.siblings().find('h1, p').removeClass('animated fadeInLeft');
+              }
+          },
+          afterLoad: function(anchorLink, index){
+              var loadedSection = $(this);
+
+              //using index
+              if(index == 3){
+                  // 인덱스 3에 도착 후 이벤트 실행
+              }
+
+              //using anchorLink
+              if(anchorLink == 'secondSlide'){
+                  // secondSlide 앙커에 도착 후 이벤트 실행
+              }
+          }
+      })
+  });
+</script>
+</body>
+</html>
