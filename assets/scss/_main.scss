@@ -356,42 +356,39 @@
 .add-scroll {
   border-collapse: collapse;
   width: 100%;
-}
-
-.add-scroll thead {
-  float: left;
-  width: 100%;
-  tr {
+  thead {
+    float: left;
     width: 100%;
-    th {
-      width: 150px !important;
+    tr {
+      width: 100%;
+      th {
+        width: 150px !important;
+      }
     }
   }
-}
-
-.add-scroll tbody {
-  overflow-y: auto;
-  overflow-x: hidden;
-  float: left;
-  width: 100%;
-  max-height: 500px;
-  tr {
-    display: table;
+  tbody {
+    overflow-y: auto;
+    overflow-x: hidden;
+    float: left;
     width: 100%;
-    td {
-      width: 100px;
+    max-height: 500px;
+    tr {
+      display: table;
+      width: 100%;
+      td {
+        width: 100px;
+      }
     }
   }
-}
-
-.add-scroll tfoot {
-  float: left;
-  width: 100%;
-  tr {
+  tfoot {
+    float: left;
     width: 100%;
-    td {
-      width: 150px !important;
-      border-top: 1px solid rgba(34, 36, 38, 0.1) !important;
+    tr {
+      width: 100%;
+      td {
+        width: 150px !important;
+        border-top: 1px solid rgba(34, 36, 38, 0.1) !important;
+      }
     }
   }
 }

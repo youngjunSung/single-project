@@ -13,8 +13,8 @@
 <body>
 <ul class="fullpage-nav">
   <li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
-  <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
-  <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+  <li data-menuanchor="secondSlide"><a href="javascript:void(0);">Second slide</a></li>
+  <li data-menuanchor="thirdPage"><a href="#thirdPage">Third slide</a></li>
 </ul>
 
 <div class="fullpage-wrap">
@@ -69,29 +69,20 @@
               }
           }*/
           onLeave: function(index, nextIndex, direction){
-              var leavingSection = $(this);
-
-              //after leaving section 2
+              var leavingSection = $(this); // 떠나는 인덱스
+              // 인덱스 1을 떠날 때
               if(index == 1){
                   leavingSection.next().find('h1, p').addClass('animated fadeInLeft');
-              } else if (index == 2) {
-                  leavingSection.next().find('h1, p').addClass('animated fadeInLeft');
-              } else if (index == 3) {
-                  leavingSection.next().find('h1, p').addClass('animated fadeInLeft');
-              } else if (index == 4) {
-                  leavingSection.next().find('h1, p').addClass('animated fadeInLeft');
               } else {
-                  leavingSection.siblings().find('h1, p').removeClass('animated fadeInLeft');
+
               }
           },
           afterLoad: function(anchorLink, index){
               var loadedSection = $(this);
-
               //using index
               if(index == 3){
                   // 인덱스 3에 도착 후 이벤트 실행
               }
-
               //using anchorLink
               if(anchorLink == 'secondSlide'){
                   // secondSlide 앙커에 도착 후 이벤트 실행
